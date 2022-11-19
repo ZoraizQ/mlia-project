@@ -1,0 +1,21 @@
+{
+    "description": "",
+    "labels": {
+        "0": "BG",
+        "1": "NCR",
+        "2": "ED",
+        "3": "ET"
+    },
+    "licence": "UVA",
+    "modality": {
+        "0": "MRI"
+    },
+    "name": "Task500_BrainTumor",
+    "numTest": 0,
+    "numTraining": 0,
+    "reference": "",
+    "release": "0.0",
+    "tensorImageSize": "4D",
+    "test": [],
+    "training": []
+}
