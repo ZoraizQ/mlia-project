@@ -486,7 +486,7 @@ class DataLoader2D(SlimDataLoaderBase):
                 if len(foreground_classes) == 0:
                     selected_class = None
                     random_slice = np.random.choice(case_all_data.shape[1])
-                    print('case does not contain any foreground classes', i)
+#                     print('case does not contain any foreground classes', i)
                 else:
                     selected_class = np.random.choice(foreground_classes)
 
