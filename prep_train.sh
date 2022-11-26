@@ -20,10 +20,22 @@
 
 
 
-for FOLD in 0 # 1 2 3 4
-do
-    echo "Training Fold=$FOLD"
-python nnunet/run/run_training.py 2d nnUNetTrainerV2 Task500_BrainTumor $FOLD --npz
-done
+# for FOLD in 0 1 2 3 4 "all"
+# do
+#     echo "Training Fold=$FOLD"
+# python nnunet/run/run_training.py 2d nnUNetTrainerV2_mlia Task500_BrainTumor $FOLD --npz
+# done
 
-# python nnunet/inference/predict_simple.py -i "imagesTs" -o "predTs" -t 500 -m 2d --save_npz
+# nnUNetTrainerV2BraTSRegions
+# nnUNetTrainerV2BraTSRegions_BN
+# nnUNetTrainerV2BraTSRegions_Dice
+
+# nnUNetTrainerV2BraTSRegions_DA3
+# nnUNetTrainerV2BraTSRegions_DA3_BN
+# nnUNetTrainerV2BraTSRegions_DA3_BD
+# nnUNetTrainerV2BraTSRegions_DA3_BN_BD
+
+# nnUNetTrainerV2BraTSRegions_DA4_BN
+# nnUNetTrainerV2BraTSRegions_DA4_BN_BD
+
+# python nnunet/inference/predict_simple.py -i "nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/imagesTs" -o "nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/predTs" -t Task500_BrainTumor -m 2d --save_npz -tr nnUNetTrainerV2_mlia -f 'all'
