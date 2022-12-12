@@ -1,0 +1,22 @@
+{
+    "dc_per_class_pp_all": {
+        "1": 0.6957427597824668,
+        "2": 0.7905797833297808,
+        "3": 0.8135602573683711
+    },
+    "dc_per_class_pp_per_class": {
+        "1": 0.628842562249646,
+        "2": 0.7533070037128377,
+        "3": 0.7869389730377284
+    },
+    "dc_per_class_raw": {
+        "1": 0.7067773186666311,
+        "2": 0.8129374469993711,
+        "3": 0.827813010391935
+    },
+    "for_which_classes": [],
+    "min_valid_object_sizes": "None",
+    "num_samples": 672,
+    "validation_final": "validation_raw_postprocessed",
+    "validation_raw": "validation_raw"
+}
