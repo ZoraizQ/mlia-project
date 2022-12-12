@@ -36,6 +36,7 @@ from nnunet.utilities.distributed import awesome_allgather_function
 from nnunet.utilities.to_torch import maybe_to_torch, to_cuda
 from torchsummary import summary
 
+
 class nnUNetTrainerV2BraTSRegions_BN(nnUNetTrainerV2):
     def initialize_network(self):
         if self.threeD:
@@ -58,11 +59,12 @@ class nnUNetTrainerV2BraTSRegions_BN(nnUNetTrainerV2):
                                     dropout_op_kwargs,
                                     net_nonlin, net_nonlin_kwargs, True, False, lambda x: x, InitWeights_He(1e-2),
                                     self.net_num_pool_op_kernel_sizes, self.net_conv_kernel_sizes, False, True, True)
+
         
         if torch.cuda.is_available():
             print('CUDA available, porting network to CUDA.')
             self.network.cuda()
-            
+
         self.network.inference_apply_nonlin = torch.nn.Softmax(1)
 
 
@@ -81,7 +83,7 @@ class nnUNetTrainerV2BraTSRegions(nnUNetTrainerV2):
         The network has as many outputs as we have regions
         """
         self.num_classes = len(self.regions)
-        
+
     def initialize_network(self):
         """inference_apply_nonlin to sigmoid"""
         super().initialize_network()

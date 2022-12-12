@@ -17,4 +17,3 @@ plan['plans_per_stage'][0]['batch_size'] = 64 # 168 before
 
 with open(plan_path, 'wb') as f:
     pickle.dump(plan, f)
-    

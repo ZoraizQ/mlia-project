@@ -37,6 +37,7 @@ from batchgenerators.utilities.file_and_folder_operations import *
 from torchsummary import summary
 
 
+
 class nnUNetTrainerV2(nnUNetTrainer):
     """
     Info for Fabian: same as internal nnUNetTrainerV2_2
@@ -46,6 +47,7 @@ class nnUNetTrainerV2(nnUNetTrainer):
                  unpack_data=True, deterministic=True, fp16=False):
         super().__init__(plans_file, fold, output_folder, dataset_directory, batch_dice, stage, unpack_data,
                          deterministic, fp16)
+
         self.max_num_epochs = 100
         self.initial_lr = 1e-2
         self.deep_supervision_scales = None
@@ -166,7 +168,7 @@ class nnUNetTrainerV2(nnUNetTrainer):
             self.network.cuda()
         else:
             print('CUDA not available.')
-            
+
         self.network.inference_apply_nonlin = softmax_helper
 
     def initialize_optimizer_and_scheduler(self):

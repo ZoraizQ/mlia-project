@@ -31,7 +31,9 @@ from nnunet.training.loss_functions.dice_loss import DC_and_BCE_loss, get_tp_fp_
 from nnunet.training.network_training.nnUNetTrainerV2 import nnUNetTrainerV2
 from nnunet.training.network_training.nnUNet_variants.data_augmentation.nnUNetTrainerV2_DA3 import \
     nnUNetTrainerV2_DA3_BN
+
 from torchsummary import summary
+
 
 class nnUNetTrainerV2BraTSRegions_DA3_BN(nnUNetTrainerV2_DA3_BN):
     def __init__(self, plans_file, fold, output_folder=None, dataset_directory=None, batch_dice=True, stage=None,
@@ -48,7 +50,7 @@ class nnUNetTrainerV2BraTSRegions_DA3_BN(nnUNetTrainerV2_DA3_BN):
         The network has as many outputs as we have regions
         """
         self.num_classes = len(self.regions)
-        
+
     def initialize_network(self):
         """inference_apply_nonlin to sigmoid"""
         super().initialize_network()
@@ -178,7 +180,7 @@ class nnUNetTrainerV2BraTSRegions_DA3(nnUNetTrainerV2BraTSRegions_DA3_BN):
                                     dropout_op_kwargs,
                                     net_nonlin, net_nonlin_kwargs, True, False, lambda x: x, InitWeights_He(1e-2),
                                     self.net_num_pool_op_kernel_sizes, self.net_conv_kernel_sizes, False, True, True)
-        
+
         if torch.cuda.is_available():
             self.network.cuda()
                 
