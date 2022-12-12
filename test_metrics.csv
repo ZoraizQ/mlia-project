@@ -1,5 +1,0 @@
-,trainer_class,whole tumor,tumor core,enhancing tumor
-0,nnUNetTrainerV2_mlia,0.6266,0.5938,0.8001
-1,nnUNetTrainerV2BraTSRegions,0.6167,0.5891,0.8135
-2,nnUNetTrainerV2BraTSRegions_DA3_BN_BD,0.6497,0.6193,0.8106
-3,nnUNetTrainerV2BraTSRegions_DA4_BN_BD,0.6587,0.6288,0.8193

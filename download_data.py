@@ -7,5 +7,5 @@ import gdown
 
 id = '1RB2C5fKj8KBadCWunmFAqVj7L40K3tiS' # 240
 url = f"https://drive.google.com/uc?id={id}"
-output = "Task500_BrainTumor_128_128.zip"
+output = "Task501_BrainTumor_240_240.zip"
 gdown.download(url, output, quiet=False)

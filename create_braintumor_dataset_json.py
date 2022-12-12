@@ -2,8 +2,12 @@ import numpy as np
 from batchgenerators.utilities.file_and_folder_operations import *
 from nnunet.dataset_conversion.utils import generate_dataset_json
 from nnunet.paths import nnUNet_raw_data, preprocessing_output_dir
+import sys
 
-task_name = 'Task500_BrainTumor'
+# task_name = 'Task500_BrainTumor' 
+task_name = sys.argv[1] 
+print('task_name=',task_name)
+
 target_base = join(nnUNet_raw_data, task_name)
 target_imagesTr = join(target_base, "imagesTr")
 target_imagesTs = join(target_base, "imagesTs")
@@ -12,6 +16,8 @@ target_labelsTr = join(target_base, "labelsTr")
 
 print(target_imagesTr)
 print(target_imagesTs)
+print(target_labelsTs)
+print(target_labelsTr)
 
 # finally we can call the utility for generating a dataset.json
 generate_dataset_json(join(target_base, 'dataset.json'), target_imagesTr, target_imagesTs, ['MRI'],

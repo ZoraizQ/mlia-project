@@ -1,6 +1,8 @@
 import pickle
 
-plan_path = 'nnUNet_preprocessed/Task500_BrainTumor/nnUNetPlansv2.1_plans_2D.pkl'
+task_name = "Task500_BrainTumor"
+# task_name = "Task501_BrainTumor"
+plan_path = f'nnUNet_preprocessed/{task_name}/nnUNetPlansv2.1_plans_2D.pkl'
 
 plan = None
 with open(plan_path, 'rb') as f:
