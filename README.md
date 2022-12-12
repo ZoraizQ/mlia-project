@@ -19,7 +19,47 @@ The next script downloads a pre-processed, structured dataset, unzips to the rig
 source prep_dataset.sh
 ```
 
-Optionally, if you want to train some existing trainer modules on certain folds (requires manual edits). Training time per epoch (~40s) on A100, 16 CPU cores, 32 GB system RAM. Takes almost 1 hour per run (each fold per class).
+Make sure the following paths exist with relevant files before proceeding as well in the current directory:
+```
+nnUNet_preprocessed/Task500_BrainTumor/nnUNetPlansv2.1_plans_2D.pkl
+nnUNet_preprocessed/Task500_BrainTumor/nnUNetData_plans_v2.1_2D_stage0
+...
+nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/imagesTr
+nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/labelsTr
+nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/imagesTs
+nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/labelsTs
+```
+
+Once the dataset is prepared you can follow either section based on training and evaluation requirements.
+
+### Run one sample training, prediction, evaluation and visualization (fast)
+
+Train, predict and evaluate a model using the best `nnUNetTrainerV2BraTSRegions_DA4_BN_BD` class. Should take ~1 hour on an A100 GPU and 16+ CPU threads.
+```
+python "nnunet/run/run_training.py" 2d nnUNetTrainerV2BraTSRegions_DA4_BN_BD Task500_BrainTumor all
+```
+
+Alternatively, if you would like to skip training, and use the pre-trained model for predictions download it from this [Google Drive link](https://drive.google.com/file/d/1JPkJMjT8dQja0S8RiA5EWYUVIlONGmJl/view?usp=sharing). Just unzip in the main directory.
+
+Ensure you have the following paths and files inside the main repository before proceeding:
+```
+nnUNet_trained_models/nnUNet/2d/Task500_BrainTumor/nnUNetTrainerV2BraTSRegions_DA4_BN_BD__nnUNetPlansv2.1/all/
+... model_final_checkpoint.model
+... model_final_checkpoint.model.pkl
+```
+
+Next, to predict on test image data, run:
+```
+python "nnunet/inference/predict_simple.py" -i "nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/imagesTs" -o "nnUNet_raw_data_base/nnUNet_raw_data/Task500_BrainTumor/predTs_nnUNetTrainerV2BraTSRegions_DA4_BN_BD" -t Task500_BrainTumor -m 2d -tr nnUNetTrainerV2BraTSRegions_DA4_BN_BD -f all --save_npz
+```
+
+Open `sample_evaluate_visualize.ipynb`, and run all sections to get a metrics summary and visualization for the `nnUNetTrainerV2BraTSRegions_DA4_BN_BD` class.
+
+
+### Batch-run all experiments (optional)
+
+
+Optionally, if you want to batch train some existing trainer modules on certain folds (requires some manual edits). Training time per epoch (~40s) on A100, 16 CPU cores, 32 GB system RAM. Takes almost 1 hour per run (each fold per class).
 ```
 source train.sh
 ```
