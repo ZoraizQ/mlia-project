@@ -50,7 +50,12 @@ Train, predict and evaluate a model using the best `nnUNetTrainerV2BraTSRegions_
 python "nnunet/run/run_training.py" 2d nnUNetTrainerV2BraTSRegions_DA4_BN_BD Task500_BrainTumor all
 ```
 
-Alternatively, if you would like to skip training, and use the pre-trained model for predictions download it from this [Google Drive link](https://drive.google.com/file/d/1JPkJMjT8dQja0S8RiA5EWYUVIlONGmJl/view?usp=sharing). Just unzip in the main directory.
+*Alternatively*, if you would like to skip training, and use the pre-trained model for predictions download it from this [Google Drive link](https://drive.google.com/file/d/1JPkJMjT8dQja0S8RiA5EWYUVIlONGmJl/view?usp=sharing). Just unzip in the main directory. Or you can run snippet the following to do this:
+```
+python download_pretrained_model.py
+rm -rf nnUNet_trained_models
+unzip nnUNet_trained_models.zip
+```
 
 Ensure you have the following paths and files inside the main repository before proceeding:
 ```
