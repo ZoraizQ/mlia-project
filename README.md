@@ -1,6 +1,8 @@
 # nnU-Net for Brain Tumor Segmentation (MLIA)
 #### Group 5 - Connor Cole, Shen Zhu, Zoraiz Qureshi (cdc3hf, sz9jt, zce5py)
 
+![image](sample.png)
+
 On a GPU-powered HPC cluster (Rivanna) or local machine. 
 Clone repository, and cd into it. All scripts should be run from inside the cloned main directory.
 ```
