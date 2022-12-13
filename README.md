@@ -6,7 +6,7 @@
 On a GPU-powered HPC cluster (Rivanna) or local machine. 
 Clone repository, and cd into it. All scripts should be run from inside the cloned main directory.
 ```
-git clone https://github.com/MIC-DKFZ/nnUNet.git
+git clone https://github.com/ZoraizQ/mlia-project.git
 cd nnUNet
 ```
 
