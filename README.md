@@ -16,6 +16,13 @@ We provide a modified version of the source nnUNet github repository (some edits
 source setup.sh
 ```
 
+Before dataset prep steps, it is ideal to remove current folders setup and start from scratch:
+```
+rm -rf nnUNet_raw_data_base
+rm -rf nnUNet_preprocessed
+rm -rf nnUNet_trained_models
+```
+
 The next script downloads a pre-processed, structured dataset, unzips to the right paths, creates associated metadata files for training. To go through our pre-processing, have a look at `preprocessing.ipynb`.
 ```
 source prep_dataset.sh
