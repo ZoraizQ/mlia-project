@@ -7,7 +7,7 @@ On a GPU-powered HPC cluster (Rivanna) or local machine.
 Clone repository, and cd into it. All scripts should be run from inside the cloned main directory.
 ```
 git clone https://github.com/ZoraizQ/mlia-project.git
-cd nnUNet
+cd mlia-project
 ```
 
 We provide a modified version of the source nnUNet github repository (some edits were to internal trainer classes), which also has some of our main custom bash and python scripts - for everything from pre-processing, downloading structured & pre-processed data, preparation, training, predictions, evaluation, and visualization. 
